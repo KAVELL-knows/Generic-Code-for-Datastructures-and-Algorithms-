@@ -69,3 +69,25 @@ class Solution:
                 
         # 6. If the loop ends without returning, the target wasn't found
         return -1 
+
+### SECOND EXAMPLE FOR INDUSTRY GOLD STANDARD 
+
+class Solution:
+    def search(self, nums: list[int], target: int) -> int:
+        
+        low = 0
+        high = len(nums) - 1
+
+        while low <= high:
+            mid = low + (high - low) // 2
+
+            midpoint = nums[mid]
+
+            if midpoint == target:
+                return mid
+            elif target < midpoint:
+                high = mid - 1
+            else:
+                low = mid + 1
+
+        return -1
